@@ -1,0 +1,111 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-05-03 07:51:36.841517",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "first_name",
+  "last_name",
+  "role",
+  "email",
+  "phone_number",
+  "password",
+  "confirm_password",
+  "math_question",
+  "math_answer",
+  "math_captcha"
+ ],
+ "fields": [
+  {
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Email",
+   "reqd": 1
+  },
+  {
+   "fieldname": "first_name",
+   "fieldtype": "Data",
+   "label": "First Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "last_name",
+   "fieldtype": "Data",
+   "label": "Last Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "phone_number",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Phone Number",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval: ['Doctor','Nurse'].includes(doc.i_am_a_)",
+   "fieldname": "password",
+   "fieldtype": "Password",
+   "label": "Password",
+   "mandatory_depends_on": "eval: ['Doctor','Nurse'].includes(doc.i_am_a_)"
+  },
+  {
+   "depends_on": "eval: ['Doctor','Nurse'].includes(doc.i_am_a_)",
+   "fieldname": "confirm_password",
+   "fieldtype": "Password",
+   "label": "Confirm Password",
+   "mandatory_depends_on": "eval: ['Doctor','Nurse'].includes(doc.i_am_a_)"
+  },
+  {
+   "fieldname": "math_question",
+   "fieldtype": "Data",
+   "label": "Math_Question"
+  },
+  {
+   "fieldname": "math_answer",
+   "fieldtype": "Data",
+   "label": "Math Answer"
+  },
+  {
+   "fieldname": "math_captcha",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Math Captcha"
+  },
+  {
+   "fieldname": "role",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Your Role",
+   "options": "staff_roles",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-05-03 07:55:46.443938",
+ "modified_by": "Administrator",
+ "module": "Staff Onboarding",
+ "name": "staff_registration",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "email"
+}
